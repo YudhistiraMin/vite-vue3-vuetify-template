@@ -1,7 +1,18 @@
 <script setup>
-import { useLogin } from '../../composable/public/login';
+import { useSignUp } from '../../composable/public/signUp';
 
-const { form, passwordRules, emailRules, required, loading, alert, handleLogin, toSignUp } = useLogin();
+const { 
+  form,
+  list,
+  passwordRules,
+  emailRules,
+  required,
+  process,
+  loading,
+  alert,
+  onSelectRole,
+  handleSignUp,
+} = useSignUp();
 
 </script>
 <template>
@@ -17,10 +28,7 @@ const { form, passwordRules, emailRules, required, loading, alert, handleLogin, 
                     <v-card-text class="pa-9">
                       <v-row>
                         <v-col cols="12" class="text-center">
-                          <!-- bagusan kasih logo -->
-                          <!-- <span class="font-weight-bold title">GenTrack Login</span>  -->
-                          <!-- end bagusan kasih logo -->
-                          <h2 style="color: #5e35b1 !important;" class="text-h5 mt-8 font-weight-bold">SIM Registry</h2>
+                          <h2 style="color: #5e35b1 !important;" class="text-h5 mt-8 font-weight-bold">Sign Up</h2>
                           <h4 class="text-disabled text-subtitle-1 mt-3">Enter your credentials to continue</h4>
                         </v-col>
                       </v-row>
@@ -32,28 +40,51 @@ const { form, passwordRules, emailRules, required, loading, alert, handleLogin, 
                         class="mt-3 text-left" 
                         :text="alert.message">
                       </v-alert>
-                      <v-form validate-on="submit lazy" @submit.prevent="handleLogin" class="mt-7 loginForm">
+                      <v-form validate-on="submit lazy" @submit.prevent="handleSignUp" class="mt-7 loginForm">
                         <div class="mb-10">
+                          <v-text-field
+                            :disabled="process.run" 
+                            v-model="form.nomor_telepon" 
+                            variant="outlined" 
+                            density="comfortable"
+                            label="Nomor telepon"
+                            :rules="required"
+                          ></v-text-field>
+                          <v-select 
+                            label="Roles" 
+                            color="#5e35b1" 
+                            :disabled="process.run" 
+                            density="comfortable" 
+                            v-model="form.roles" 
+                            :items="list.roles"
+                            variant="outlined" 
+                            item-title="label" 
+                            item-value="value"
+                            @update:model-value="onSelectRole" 
+                            :rules="required">
+                          </v-select>
                           <v-text-field
                             class="mt-4 mb-8"
                             v-model="form.email"
+                            :disabled="process.run" 
                             density="comfortable"
                             label="Email"
                             hide-details="auto"
                             variant="outlined"
-                            color="#5e35b1"
                             :rules="emailRules"
+                            color="#5e35b1"
                           ></v-text-field>
                           <v-text-field
                             :append-inner-icon="showPassword ? 'mdi-eye' : 'mdi-eye-off'"
                             :type="showPassword ? 'text' : 'password'"
                             v-model="form.password"
+                            :disabled="process.run" 
                             density="comfortable"
                             label="Password"
                             color="#5e35b1"
-                            :rules="passwordRules"
                             hide-details="auto"
                             variant="outlined"
+                            :rules="passwordRules"
                             @click:append-inner="showPassword = !showPassword"
                           ></v-text-field>
                         </div>
@@ -67,15 +98,14 @@ const { form, passwordRules, emailRules, required, loading, alert, handleLogin, 
                           text="Login"
                           :disabled="valid" 
                           type="submit">
-                            Sign In
+                            Create account
                           </v-btn>
                       </v-form>
                       <div class="text-end">
                         <v-divider class="my-4"></v-divider>
-                        <v-btn variant="plain" class="text-subtitle-2 text-grey-darken-1" to="signup">Don't have an account?</v-btn>
+                        <v-btn variant="plain" class="text-subtitle-2 text-grey-darken-1" to="login">Already have an account?</v-btn>
                       </div>
                     </v-card-text>
-
                   </v-card>
                 </v-card>
               </v-col>

@@ -76,7 +76,7 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import { useAuthStore } from '../stores/auth';
 const defaultTitle = import.meta.env.VITE_APP_NAME;
-// import Dashboard from "../views/private/dashboard/Index.vue"
+import Menu1 from "../views/private/menu1/Index.vue"
 // import Monitoring from "../views/private/monitoring/Index.vue"
 // import Inspeksi from "../views/private/inspeksi-hm/Index.vue"
 // import Detail from "../views/private/report/DetailHm.vue"
@@ -84,7 +84,7 @@ const defaultTitle = import.meta.env.VITE_APP_NAME;
 // import Last from "../views/private/report/LastHm.vue"
 import Login from "../views/public/login.vue"
 const routes = [
-//   { path: '/dashboard', component: Dashboard },
+  { path: '/menu1', component: Menu1 },
 //   { path: '/monitoring', component: Monitoring },
 //   { path: '/inspecting', component: Inspeksi },
 //   { path: '/report/detail', component: Detail },

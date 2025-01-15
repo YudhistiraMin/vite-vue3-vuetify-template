@@ -1,10 +1,11 @@
 <script setup>
 import MainLayout from './components/MainLayout.vue'
-import login from './views/public/login.vue'
+import Login from './views/public/login.vue'
+import SignUp from './views/public/SignUp.vue'
 </script>
 
 <template>
   <div>
-    <MainLayout />
+    <SignUp />
   </div>
 </template>

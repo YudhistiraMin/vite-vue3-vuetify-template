@@ -9,16 +9,18 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@mdi/font": "^7.4.47",
     "axios": "^1.7.4",
     "pinia": "^2.2.2",
     "vue": "^3.2.47",
-    "@mdi/font": "^7.4.47",
     "vue-router": "^4.3.2",
+    "vue3-perfect-scrollbar": "^2.0.0",
     "vuetify": "3.5.9",
-    "vue3-perfect-scrollbar": "^2.0.0"
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^4.1.0",
+    "sass": "^1.83.0",
     "vite": "^4.2.0"
   }
 }

@@ -16,6 +16,11 @@ html {
     background: #eef2f6;
 }
 
+
+.background-first {
+    background-color: #5e35b1 !important;
+}
+
 /* button */
 .v-btn.bg-lightsecondary:hover, .v-btn.bg-lightsecondary:active, .v-btn.bg-lightsecondary:focus {
     background-color: #5e35b1 !important;

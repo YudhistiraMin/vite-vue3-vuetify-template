@@ -6,13 +6,15 @@ import { useAuthStore } from '../../stores/auth';
 export function useLogin() {
 	const authStore = useAuthStore();
 	const form = ref({
-	  username: '',
+	  email: '',
 	  password: ''
 	});
-	const rules = ref({
-	  email: [],
-	  password: []
-	});
+	const passwordRules = ref([
+		(v) => !!v || 'Password is required',
+		(v) => (v && v.length <= 10) || 'Password must be less than 10 characters'
+	  ]);
+	const emailRules = ref([(v) => !!v || 'E-mail is required', (v) => /.+@.+\..+/.test(v) || 'E-mail must be valid']);
+	const required = ref((value) => !!value || "Field is required");
 	const loading = ref(false);
 	const alert = ref({
 	  title: "Error",
@@ -57,12 +59,19 @@ export function useLogin() {
 		}
 	  }
 	};
+
+	const toSignUp = () => {
+		router.push({ name: 'register' });
+	};
   
 	return {
 	  form,
-	  rules,
+	  passwordRules,
+	  emailRules,
+	  required,
 	  loading,
 	  alert,
-	  handleLogin
+	  handleLogin,
+	  toSignUp
 	};
   }

@@ -12,48 +12,48 @@ const emit = defineEmits(["change"]);
 const drawerIn = ref(props.drawer.drawer);
 const menuItems = ref([
   {
-    label: "Dashboard",
-    to: "/dashboard",
+    label: "Input Data",
+    to: "/menu1",
     icon: "mdi-view-dashboard",
     color: "#5e35b1",
   },
-  {
-    label: "Monitoring",
-    to: "/monitoring",
-    icon: "mdi-monitor-dashboard",
-    color: "#5e35b1",
-  },
-  {
-    label: "Input HM inspection",
-    to: "/inspecting",
-    icon: "mdi-file-document-edit-outline",
-    color: "#5e35b1",
-  },
+  // {
+  //   label: "Menu 2",
+  //   to: "/monitoring",
+  //   icon: "mdi-monitor-dashboard",
+  //   color: "#5e35b1",
+  // },
+  // {
+  //   label: "Menu 3",
+  //   to: "/inspecting",
+  //   icon: "mdi-file-document-edit-outline",
+  //   color: "#5e35b1",
+  // },
 ]);
 const menuGroup = ref([
-  {
-    label: "Report",
-    value: "report",
-    icon: "mdi-file-chart",
-    color: "#5e35b1",
-    children: [
-      {
-        label: "Detail HM",
-        to: "/report/detail",
-        color: "#5e35b1",
-      },
-      {
-        label: "Summary HM",
-        to: "/report/summary",
-        color: "#5e35b1",
-      },
-      {
-        label: "Last HM",
-        to: "/report/last",
-        color: "#5e35b1",
-      }
-    ]
-  },
+  // {
+  //   label: "Menu 4",
+  //   value: "report",
+  //   icon: "mdi-file-chart",
+  //   color: "#5e35b1",
+  //   children: [
+  //     {
+  //       label: "Sub menu 4",
+  //       to: "/report/detail",
+  //       color: "#5e35b1",
+  //     },
+  //     {
+  //       label: "Sub menu 4",
+  //       to: "/report/summary",
+  //       color: "#5e35b1",
+  //     },
+  //     {
+  //       label: "Sub menu 4",
+  //       to: "/report/last",
+  //       color: "#5e35b1",
+  //     }
+  //   ]
+  // },
 ])
 
 const logout = async () => {
@@ -80,7 +80,7 @@ watch(drawerIn, (newValue) => {
     class="leftSidebar"
     expand-on-hover>
     <div class="pa-5">
-      TPB DEV
+      SIM REGISTRY
     </div>
     <perfect-scrollbar class="scrollnavbar">
       <div class="pa-4" color="darkText">
